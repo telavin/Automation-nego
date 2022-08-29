@@ -2,7 +2,7 @@ Sub egan()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
+Dim vari_1 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
@@ -12,14 +12,14 @@ Do While archivos <> ""
 Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\HC\" & archivos
 archivos = Dir
 Loop
-bills = ActiveWorkbook.Name
-tt = bills
-Set goku = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\PLANTILLAS\PLANTILLA_HC")
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
+Set vari_1 = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\PLANTILLAS\PLANTILLA_HC")
 xiaomi = "PLANTILLA_HC"
 ss = xiaomi & ".xlsx"
 Windows(tt).Activate
-RATA = Sheets(1).Range("A" & Rows.Count).End(xlUp).Row
-Sheets(1).Range("A1:U" & RATA).Copy
+vari_3 = Sheets(1).Range("A" & Rows.Count).End(xlUp).Row
+Sheets(1).Range("A1:U" & vari_3).Copy
 Windows(ss).Activate
 Sheets("HC").Select
 Range("A2").Select
@@ -51,7 +51,7 @@ ActiveWorkbook.Save
 ActiveWorkbook.Close
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 End Sub
 Sub garan()
 Application.ScreenUpdating = False
@@ -71,8 +71,7 @@ Sheets(1).Range("A2:E" & las).Copy
 Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
 Sheets("Garantizados").Select
 Range("A2").Select
-Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
-:=False, Transpose:=False
+Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
 Application.CutCopyMode = False
 Windows(pp).Activate
 ActiveWorkbook.Close SaveChanges:=False
@@ -84,7 +83,7 @@ For i = 1 To claro
 ActiveCell.FormulaR1C1 = "=VLOOKUP(RC[-3],HC!C1:C7,5,FALSE)"
 ActiveCell.Offset(1, 0).Select
 Next i
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
 End Sub
@@ -103,15 +102,15 @@ Next h
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
 Application.Calculation = xlCalculationAutomatic
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 MsgBox "Por favor espere DOS minutos mientras se enfría el procesador, de lo contrario la memoria se desboradará", vbInformation
 End Sub
-Sub blabla()
+Sub vari_5()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
@@ -121,8 +120,8 @@ Do While archivos <> ""
 Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\AUSENTISMOS\" & archivos
 archivos = Dir
 Loop
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Sheets(1).Select
 Set rangodatos = Sheets(1).UsedRange
@@ -146,7 +145,7 @@ Range("I1") = "HC ACTUAL"
 Windows(tt).Activate
 Range("M1").Select
 ActiveCell.FormulaR1C1 = "=COUNTA(C[-12])-1"
-Set goku = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\PLANTILLAS\PLANTILLA_HC")
+Set vari_1 = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\PLANTILLAS\PLANTILLA_HC")
 xiaomi = "PLANTILLA_HC"
 ss = xiaomi & ".xlsx"
 Windows(ss).Activate
@@ -161,14 +160,16 @@ Range("J1") = "HC VIEJO"
 Windows(ss).Activate
 ActiveWorkbook.Save
 ActiveWorkbook.Close
-MsgBox "LISTOS EL ACTUAL, CAPO", vbInformation
-Set vegueta = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\VIEJA\HC_VIEJO")
+MsgBox "LISTOS EL ACTUAL, ", vbInformation
+Set vari_6 = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\VIEJA\HC_VIEJO")
 nevado = "HC_VIEJO"
-cr7 = nevado & ".xlsx"
-Windows(cr7).Activate
+vari_4 = nevado & ".xlsx"
+Windows(vari_4).Activate
 Windows(tt).Activate
 Sheets(1).Select
 carita = Sheets(1).Range("A" & Rows.Count).End(xlUp).Row
+Range("A1").Select
+Selection.AutoFilter
 ActiveSheet.ListObjects.Add(xlSrcRange, Range("A1:J" & carita), , xlYes).Name = _
 "Tabla1"
 Range("Tabla1[#All]").Select
@@ -184,7 +185,7 @@ Range("Tabla1").AutoFilter Field:=10, Criteria1:="<>#N/A" _
 Range("A1").Select
 Range(Selection, Selection.End(xlDown)).Select
 Selection.Copy
-Windows(cr7).Activate
+Windows(vari_4).Activate
 Worksheets.Add.Name = "NUEVA"
 Sheets("NUEVA").Select
 Range("A1").Select
@@ -193,7 +194,7 @@ Application.CutCopyMode = False
 Windows(tt).Activate
 ActiveWorkbook.Save
 ActiveWorkbook.Close
-Windows(cr7).Activate
+Windows(vari_4).Activate
 Sheets("HC").Select
 Range("AI1").Select
 ActiveCell.FormulaR1C1 = "=COUNTA(C[-32])-1"
@@ -205,9 +206,8 @@ ActiveCell.Offset(1, 0).Select
 Next i
 Sheets("HC").Select
 Set rangodatos = Sheets("HC").UsedRange
-rangodatos.AutoFilter Field:=28, Criteria1:="<>#N/A" _
-, Operator:=xlAnd
-rangodatos.AutoFilter Field:=7, Criteria1:=Array("Consultor Negocios", "Especialista Comercial Negocios", "Especialista Canales Negocios", "Especialista Ventas Sinergia Empresas", "Especialista Comercial Telemercadeo Empresas Y Negocios", "Especialista Telemercadeo Empresas Y Negocios", "Coordinador Comercial Negocios", "Coordinador Ventas Negocios", "Jefe Comercial Negocios", "Jefe Telemercadeo Pyme", "Jefe Canales Negocios", "Gerente Comercial Telemercadeo Empresas Y Negocios", "Gerente Comercial Negocios 1", "Gerente Comercial Negocios 2", "Gerente Comercial Negocios 3", "Director Negocios"), _
+rangodatos.AutoFilter Field:=28, Criteria1:="<>#N/A", Operator:=xlAnd
+rangodatos.AutoFilter Field:=7, Criteria1:=Array("Consultor Cuentas Corporativas Regional SN", "Consultor Intermedias Segmento Negocios", "Consultor Negocios", "Especialista Comercial Negocios", "Especialista Canales Negocios", "Especialista Ventas Sinergia Empresas", "Especialista Comercial Telemercadeo Empresas Y Negocios", "Especialista Telemercadeo Empresas Y Negocios", "Coordinador Comercial Negocios", "Coordinador Ventas Negocios", "Jefe Comercial Negocios", "Jefe Telemercadeo Pyme", "Jefe Canales Negocios", "Gerente Comercial Telemercadeo Empresas Y Negocios", "Gerente Comercial Negocios 1", "Gerente Comercial Negocios 2", "Gerente Comercial Negocios 3", "Director Negocios", "Especialista Comercial Negocios", "Especialista Ventas Sinergia Empresas", "Jefe Comercial Telemercadeo Empresas Y Negocios", "Gerente Comercial Telemercadeo Empresas Y Negocios", "Jefe Canales Negocios"), _
 Operator:=xlFilterValues
 Range("AF1").Select
 ActiveCell.FormulaR1C1 = "=SUBTOTAL(103,C3)-1"
@@ -222,7 +222,7 @@ End With
 dedo = Sheets("HC").Range("C" & Rows.Count).End(xlUp).Row
 Sheets("HC").Select
 Sheets("HC").Range("C1:W" & dedo).Copy
-Set goku = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\PLANTILLAS\PLANTILLA_HC")
+Set vari_1 = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\PLANTILLAS\PLANTILLA_HC")
 xiaomi = "PLANTILLA_HC"
 ss = xiaomi & ".xlsx"
 Windows(ss).Activate
@@ -242,20 +242,20 @@ ActiveSheet.ShowAllData
 Windows(ss).Activate
 ActiveWorkbook.Save
 ActiveWorkbook.Close
-Windows(cr7).Activate
+Windows(vari_4).Activate
 ActiveWorkbook.Save
 ActiveWorkbook.Close
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 Else
-Windows(cr7).Activate
+Windows(vari_4).Activate
 ActiveWorkbook.Save
 ActiveWorkbook.Close
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
 Application.Calculation = xlCalculationAutomatic
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 MsgBox "Por favor espere DOS minutos mientras se enfría el procesador, de lo contrario la memoria se desboradará", vbInformation
 End If
 End Sub
@@ -277,13 +277,13 @@ End Sub
 Sub CARGUE_HC()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
 Dim nomlib As String
-Set goku = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\PLANTILLAS\PLANTILLA_HC")
+Set vari_1 = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\PLANTILLAS\PLANTILLA_HC")
 xiaomi = "PLANTILLA_HC"
 ss = xiaomi & ".xlsx"
 Windows(ss).Activate
@@ -299,14 +299,14 @@ Windows(ss).Activate
 ActiveWorkbook.Close SaveChanges:=False
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 End Sub
 Sub vacaciones()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
@@ -316,8 +316,8 @@ Do While archivos <> ""
 Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\VACACIONES\" & archivos
 archivos = Dir
 Loop
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Columns("A:A").Select
 Selection.TextToColumns Destination:=Range("A1"), DataType:=xlDelimited, _
@@ -339,7 +339,7 @@ Application.CutCopyMode = False
 Range("A2").Select
 Windows(tt).Activate
 ActiveWorkbook.Close SaveChanges:=False
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
 End Sub
@@ -350,8 +350,8 @@ Sub spacex()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
@@ -361,8 +361,8 @@ Do While archivos <> ""
 Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\METAS\" & archivos
 archivos = Dir
 Loop
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Sheets("LIDERES NEGOCIOS-INTERMEDIAS").Select
 Range("A1").Select
@@ -380,7 +380,7 @@ ActiveSheet.Paste
 Windows(tt).Activate
 Sheets("LIDERES NEGOCIOS-INTERMEDIAS").Range("N2:N" & col).Copy
 Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
-Range("M2").PasteSpecial xlPasteValues
+Range("N2").PasteSpecial xlPasteValues
 Windows(tt).Activate
 Sheets("META GENERAL NEGOCIOS").Select
 Range("A1").Select
@@ -399,11 +399,18 @@ crew = Selection.End(xlDown).Row
 Range("D" & crew + 1).Select
 ActiveSheet.Paste
 Windows(tt).Activate
-Sheets("META GENERAL NEGOCIOS").Range("M2:M" & musk).Copy
+'Sheets("META GENERAL NEGOCIOS").Range("M2:M" & musk).Copy
+'Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
+'Range("M1").Select
+'crew = Selection.End(xlDown).Row
+'Range("M" & crew + 1).PasteSpecial xlPasteValues
+'Windows(tt).Activate
+Sheets("META GENERAL NEGOCIOS").Range("P2:P" & musk).Copy
 Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
-Range("M1").Select
+Range("N1").Select
 crew = Selection.End(xlDown).Row
-Range("M" & crew + 1).PasteSpecial xlPasteValues
+Range("N" & crew + 1).PasteSpecial xlPasteValues
+Application.CutCopyMode = False
 Windows(tt).Activate
 ActiveWorkbook.Close SaveChanges:=False
 MsgBox "listo el pegue", vbInformation
@@ -415,7 +422,7 @@ For i = 1 To elon
 ActiveCell.FormulaR1C1 = "=SUM(RC[-5],RC[-1])"
 ActiveCell.Offset(1, 0).Select
 Next i
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
 End Sub
@@ -423,8 +430,8 @@ Sub nasa()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
@@ -434,16 +441,16 @@ Do While archivos <> ""
 Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\FIJOS\" & archivos
 archivos = Dir
 Loop
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
 Sheets("Meses").Select
-yoyis = Range("H1").Value
+vari_7 = Range("H1").Value
 Windows(tt).Activate
 Sheets("Base_Comisiones").Select
 Set rangodatos = Sheets("Base_Comisiones").UsedRange
-rangodatos.AutoFilter Field:=4, Criteria1:=yoyis
+rangodatos.AutoFilter Field:=4, Criteria1:=vari_7
 Sheets("Base_Comisiones").Select
 Range("A1").Select
 col = Sheets("Base_Comisiones").Range("A" & Rows.Count).End(xlUp).Row
@@ -597,6 +604,11 @@ Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
 Sheets("Base Fijos").Select
 Range("P2").PasteSpecial xlPasteValues
 Windows(tt).Activate
+Sheets("Base_Comisiones").Range("DG2:DG" & col).Copy
+Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
+Sheets("Base Fijos").Select
+Range("U2").PasteSpecial xlPasteValues
+Windows(tt).Activate
 ActiveWorkbook.Close SaveChanges:=False
 MsgBox "LISTO EL PEGUE 1", vbInformation
 Application.ScreenUpdating = True
@@ -606,13 +618,13 @@ Sub golovin()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
 Dim nomlib As String
-Set goku = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\PLANTILLAS\LEGALI")
+Set vari_1 = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\PLANTILLAS\LEGALI")
 xiaomi = "LEGALI"
 ss = xiaomi & ".xlsx"
 Sheets(1).Select
@@ -623,7 +635,7 @@ Selection.ClearContents
 Range("A1").Select
 Windows(ss).Activate
 ActiveWorkbook.Close SaveChanges:=True
-Set goku = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\PLANTILLAS\PERMA")
+Set vari_1 = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\PLANTILLAS\PERMA")
 xiaom = "PERMA"
 st = xiaom & ".xlsx"
 Sheets(1).Select
@@ -634,7 +646,7 @@ Selection.ClearContents
 Range("A1").Select
 Windows(st).Activate
 ActiveWorkbook.Close SaveChanges:=True
-Set goku = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\PLANTILLAS\PLANTILLA_HC")
+Set vari_1 = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\PLANTILLAS\PLANTILLA_HC")
 xiom = "PLANTILLA_HC"
 tt = xiom & ".xlsx"
 Sheets(1).Select
@@ -645,7 +657,7 @@ Selection.ClearContents
 Range("A1").Select
 Windows(tt).Activate
 ActiveWorkbook.Close SaveChanges:=True
-Set goku = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\MOVIL VIEJO\BACKLOG")
+Set vari_1 = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\MOVIL VIEJO\BACKLOG")
 xiomm = "BACKLOG"
 pp = xiomm & ".xlsx"
 Sheets(1).Select
@@ -656,7 +668,7 @@ Selection.ClearContents
 Range("A1").Select
 Windows(pp).Activate
 ActiveWorkbook.Close SaveChanges:=True
-Set goku = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\VIEJA\HC_VIEJO")
+Set vari_1 = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\VIEJA\HC_VIEJO")
 eg = "HC_VIEJO"
 xx = eg & ".xlsx"
 Sheets("HC").Select
@@ -678,8 +690,8 @@ Sub franco()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
@@ -689,8 +701,8 @@ Do While archivos <> ""
 Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\NETO MOVIL\" & archivos
 archivos = Dir
 Loop
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Range("A3").Select
 cool = Selection.End(xlDown).Row
@@ -724,8 +736,8 @@ Sub falcon()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
@@ -738,20 +750,20 @@ Do While archivos <> ""
 Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\FIJOS\" & archivos
 archivos = Dir
 Loop
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Sheets("Base_Comisiones").Select
 Range("A1").Select
 Set rangodatos = Sheets("Base_Comisiones").UsedRange
 rangodatos.AutoFilter Field:=79, Operator:= _
-xlFilterValues, Criteria2:=Array(0, "1/1/2021")
+xlFilterValues, Criteria2:=Array(0, "1/1/2022")
 Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
 calamaro = WorksheetFunction.VLookup(Range("H1").Value, Sheets("Meses").Range("A:C"), 3, 0)
 Windows(tt).Activate
 Set rangodatos = Sheets("Base_Comisiones").UsedRange
 rangodatos.AutoFilter Field:=79, Operator:= _
-xlFilterValues, Criteria2:=Array(1, calamaro & "/1/2021")
+xlFilterValues, Criteria2:=Array(1, calamaro & "/1/2022")
 Set rangodatos = Sheets("Base_Comisiones").UsedRange
 rangodatos.AutoFilter Field:=4, Criteria1:=bongo
 Sheets("Base_Comisiones").Select
@@ -940,8 +952,14 @@ Sheets("Base Fijos").Select
 Range("P" & dragon + 1).Select
 Selection.PasteSpecial xlPasteValues
 Windows(tt).Activate
+Sheets("Base_Comisiones").Range("DG2:DG" & col).Copy
+Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
+Sheets("Base Fijos").Select
+Range("U" & dragon + 1).Select
+Selection.PasteSpecial xlPasteValues
+Windows(tt).Activate
 ActiveWorkbook.Close SaveChanges:=False
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 MsgBox "Por favor espere DOS minutos mientras se enfría el procesador, de lo contrario la memoria se desboradará", vbInformation
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
@@ -1037,7 +1055,7 @@ Selection.Font.Bold = True
 Range("J1") = "LÍNEAS"
 Range("A1").Select
 ActiveSheet.ShowAllData
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 MsgBox "Por favor espere DOS minutos mientras se enfría el procesador, de lo contrario la memoria se desboradará", vbInformation
 Application.Calculation = xlCalculationAutomatic
 Application.ScreenUpdating = True
@@ -1047,8 +1065,8 @@ Sub tesla()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
@@ -1058,13 +1076,13 @@ Do While archivos <> ""
 Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\MOVIL\" & archivos
 archivos = Dir
 Loop
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
 Sheets("Meses").Select
 calamaro = WorksheetFunction.VLookup(Range("H1").Value, Sheets("Meses").Range("A:I"), 9, 0)
-odin = "2021" & calamaro
+odin = "2022" & calamaro
 Windows(tt).Activate
 Sheets("DETALLE").Select
 Sheets("DETALLE").ListObjects("Tabla1").Unlist
@@ -1131,6 +1149,18 @@ Sheets("Base Móvil").Select
 Range("AP2").PasteSpecial xlPasteValues
 Application.CutCopyMode = False
 Windows(tt).Activate
+Sheets("DETALLE").Range("AJ2:AJ" & col).Copy
+Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
+Sheets("Base Móvil").Select
+Range("AQ2").PasteSpecial xlPasteValues
+Application.CutCopyMode = False
+Windows(tt).Activate
+Sheets("DETALLE").Range("AP2:AP" & col).Copy
+Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
+Sheets("Base Móvil").Select
+Range("AR2").PasteSpecial xlPasteValues
+Application.CutCopyMode = False
+Windows(tt).Activate
 ActiveWorkbook.Close SaveChanges:=False
 MsgBox "LISTO EL PEGUE 1", vbInformation
 Application.ScreenUpdating = True
@@ -1140,8 +1170,8 @@ Sub backtesla()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
@@ -1151,14 +1181,14 @@ Do While archivos <> ""
 Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\MOVIL VIEJO\" & archivos
 archivos = Dir
 Loop
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
 Sheets("Meses").Select
 KING = WorksheetFunction.VLookup(Range("H1").Value, Sheets("Meses").Range("A:B"), 2, 0) - 30
 bongo = Format(KING, "mmmm")
 xbox = WorksheetFunction.VLookup(bongo, Sheets("Meses").Range("A:I"), 9, 0)
-thor = "2021" & xbox
+thor = "2022" & xbox
 Windows(tt).Activate
 Sheets("DETALLE").Select
 Set rangodatos = Sheets("DETALLE").UsedRange
@@ -1185,14 +1215,14 @@ Sheets("Base Móvil").Select
 Range("J" & dragon + 1).Select
 Selection.PasteSpecial xlPasteValues
 Windows(tt).Activate
-Sheets("DETALLE").Range("AF2:AP" & col).Copy
+Sheets("DETALLE").Range("AF2:AS" & col).Copy
 Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
 Sheets("Base Móvil").Select
 Range("AF" & dragon + 1).Select
 Selection.PasteSpecial xlPasteValues
 Windows(tt).Activate
 ActiveWorkbook.Close SaveChanges:=False
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 MsgBox "Por favor espere DOS minutos mientras se enfría el procesador, de lo contrario la memoria se desboradará", vbInformation
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
@@ -1201,15 +1231,15 @@ Sub PROCOLOMBIA()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos, motorola As String
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
 Dim nomlib As String
 Workbooks.Add
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
 Sheets("Base Móvil").Select
@@ -1238,7 +1268,7 @@ motorola & "CONSULTA_LEGALIZACION.txt" _
 , FileFormat:=xlText, CreateBackup:=False
 Windows("CONSULTA_LEGALIZACION.txt").Activate
 ActiveWorkbook.Close SaveChanges:=False
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
 End Sub
@@ -1246,15 +1276,15 @@ Sub mexico_86()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos, motorola As String
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
 Dim nomlib As String
 Workbooks.Add
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
 Sheets("Base Móvil").Select
@@ -1317,7 +1347,7 @@ Call espagnolo
 Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
 Sheets("Base Móvil").Select
 Range("A1").Select
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
 End Sub
@@ -1354,25 +1384,25 @@ Range("AN3:AN" & dragon).Select
 ActiveSheet.Paste
 Application.CutCopyMode = False
 Range("AN2").Select
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 MsgBox "Por favor espere DOS minutos mientras se enfría el procesador, de lo contrario la memoria se desboradará", vbInformation
 Application.Calculation = xlCalculationAutomatic
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
 End Sub
 Sub marcolis()
-Dim lala As Integer
+Dim vari_9 As Integer
 Dim billions As Object
 Set billions = CreateObject("Scripting.FileSystemObject")
-lala = billions.CopyFile("D:\AUTOMA_FULL_NEGOCIOS\PLANTILLA_TOP_NEGOCIOS.xlsm", "D:\AUTOMA_FULL_NEGOCIOS\LIQ_FINAL\primeracopia.xlsm")
+vari_9 = billions.CopyFile("D:\AUTOMA_FULL_NEGOCIOS\PLANTILLA_TOP_NEGOCIOS.xlsm", "D:\AUTOMA_FULL_NEGOCIOS\LIQ_FINAL\primeracopia.xlsm")
 MsgBox "Validación ok", vbInformation
 End Sub
 Sub legacy()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
@@ -1385,8 +1415,8 @@ Do While archivos <> ""
 Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\LEGALIZACIÓN\" & archivos
 archivos = Dir
 Loop
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Sheets("SQL Results").Select
 Columns("C:C").Select
@@ -1395,7 +1425,7 @@ TextQualifier:=xlDoubleQuote, ConsecutiveDelimiter:=False, Tab:=True, _
 Semicolon:=False, Comma:=False, Space:=False, Other:=False, FieldInfo _
 :=Array(1, 1), TrailingMinusNumbers:=True
 Range("C1").Select
-Set goku = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\PLANTILLAS\LEGALI")
+Set vari_1 = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\PLANTILLAS\LEGALI")
 xiaomi = "LEGALI"
 ss = xiaomi & ".xlsx"
 Windows(tt).Activate
@@ -1459,15 +1489,15 @@ Sub lehman()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos, motorola As String
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
 Dim nomlib As String
 Workbooks.Add
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
 Sheets("Base Móvil").Select
@@ -1524,7 +1554,7 @@ ActiveWorkbook.Close SaveChanges:=False
 MsgBox "LISTO SEGUNDO VALIDADOR", vbInformation
 Call functlon
 Call funtion
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
 End Sub
@@ -1586,11 +1616,11 @@ rangodatos.AutoFilter Field:=7, Criteria1:="="
 Set rangodatos = Sheets("Base Móvil").UsedRange
 rangodatos.AutoFilter Field:=9, Criteria1:="<>"
 Range("A1").Select
-cr7 = Selection.End(xlDown).Row
+vari_4 = Selection.End(xlDown).Row
 Sheets("Meses").Select
 Range("XFD2").Copy
 Sheets("Base Móvil").Select
-Sheets("Base Móvil").Range("AE1:AE" & cr7).Select
+Sheets("Base Móvil").Range("AE1:AE" & vari_4).Select
 ActiveSheet.Paste
 Range("A1").Select
 ActiveSheet.ShowAllData
@@ -1627,7 +1657,7 @@ Selection.Font.Bold = True
 Range("G1") = "FECHA LEGALIZACION"
 Range("H1") = "FECHA RECEPCION"
 Range("I1") = "FECHA DEVOLUCION"
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 Application.Calculation = xlCalculationAutomatic
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
@@ -1636,8 +1666,8 @@ Sub killbill()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
@@ -1647,8 +1677,8 @@ Do While archivos <> ""
 Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\MOVIL\" & archivos
 archivos = Dir
 Loop
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
 Sheets("Meses").Select
@@ -1687,16 +1717,16 @@ ActiveWorkbook.Close SaveChanges:=False
 MsgBox "LISTO PRIMER VALIDADOR", vbInformation
 Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
 Range("A1").Select
-alien = Selection.End(xlDown).Row - 1
+vari_10 = Selection.End(xlDown).Row - 1
 Range("AE2").Select
-For i = 1 To alien
+For i = 1 To vari_10
 ActiveCell.FormulaR1C1 = "OK Fechas"
 ActiveCell.Offset(0, 1).Range("A1").Select
 ActiveCell.FormulaR1C1 = "OK Fechas"
 ActiveCell.Offset(1, 0).Select
 ActiveCell.Offset(0, -1).Select
 Next i
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
 End Sub
@@ -1734,8 +1764,8 @@ Sub oud()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
@@ -1748,8 +1778,8 @@ Do While archivos <> ""
 Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\PERMANENCIA\" & archivos
 archivos = Dir
 Loop
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Columns("A:A").Select
 Selection.TextToColumns Destination:=Range("A1"), DataType:=xlDelimited, _
@@ -1758,7 +1788,7 @@ Semicolon:=False, Comma:=True, Space:=False, Other:=False, FieldInfo _
 :=Array(Array(1, 1), Array(2, 1), Array(3, 1), Array(4, 1), Array(5, 1), Array(6, 1), _
 Array(7, 1), Array(8, 1), Array(9, 1)), TrailingMinusNumbers:=True
 Range("A1").Select
-Set goku = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\PLANTILLAS\PERMA")
+Set vari_1 = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\PLANTILLAS\PERMA")
 xiaomi = "PERMA"
 ss = xiaomi & ".xlsx"
 Windows(tt).Activate
@@ -1846,8 +1876,8 @@ Sub scribe()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
@@ -1857,8 +1887,8 @@ Do While archivos <> ""
 Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\BAJAS FIJO\" & archivos
 archivos = Dir
 Loop
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Sheets("Detalle").Select
 Range("A1").Select
@@ -1875,9 +1905,9 @@ Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
 Range("L:L").Columns.Insert
 Range("L1") = "COMISIONES"
 Range("A1").Select
-alien = Selection.End(xlDown).Row - 1
+vari_10 = Selection.End(xlDown).Row - 1
 Range("L2").Select
-For i = 1 To alien
+For i = 1 To vari_10
 ActiveCell.FormulaR1C1 = "=RC[-1]*-1"
 ActiveCell.Offset(1, 0).Select
 Next i
@@ -1888,7 +1918,7 @@ With Selection.Interior
 .TintAndShade = 0
 .PatternTintAndShade = 0
 End With
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 Application.Calculation = xlCalculationAutomatic
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
@@ -2018,7 +2048,7 @@ ActiveCell.FormulaR1C1 = "=VLOOKUP(RC[-2],HC!C1:C5,5,0)"
 ActiveCell.Offset(1, 0).Select
 ActiveCell.Offset(0, -2).Select
 Next i
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 Application.Calculation = xlCalculationAutomatic
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
@@ -2027,9 +2057,10 @@ Sub poc()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Call marcolis
+Call kloop
 Dim archivos
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
@@ -2039,8 +2070,8 @@ Do While archivos <> ""
 Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\LIQ_FINAL\" & archivos
 archivos = Dir
 Loop
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Sheets("Base Móvil").Select
 Cells.Select
@@ -2085,8 +2116,8 @@ Sub vlog()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
@@ -2096,8 +2127,8 @@ Do While archivos <> ""
 Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\LIQ_FINAL\" & archivos
 archivos = Dir
 Loop
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Sheets("Base Móvil").Select
 Cells.Select
@@ -2138,7 +2169,7 @@ ActiveWorkbook.Close SaveChanges:=True
 Kill ("D:\AUTOMA_FULL_NEGOCIOS\LIQ_FINAL\*.xlsm")
 Call EUCLIDEES
 Call ergo
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 MsgBox "Por favor espere DOS minutos mientras se enfría el procesador, de lo contrario la memoria se desboradará", vbInformation
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
@@ -2240,6 +2271,9 @@ Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
 :=False, Transpose:=False
 Application.CutCopyMode = False
 Range("A1").Select
+Sheets("Base Fijos").Select
+Columns("BB:BB").Delete
+Range("A1").Select
 MsgBox "EL SISTEMA SE CERRARÁ, POR FAVOR NO MANIPULE EL COMPUTADOR HASTA QUE EL EJECUTABLE DE EXCEL SE CIERRE, VUELVA ABRIR EL ARCHIVO Y EJECUTE EL BOTÓN EXPORTAR BASES", vbInformation
 ActiveWorkbook.Close SaveChanges:=True
 Application.ScreenUpdating = True
@@ -2249,12 +2283,12 @@ Sub EUCLIDEES()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
+Dim vari_1 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
 Dim nomlib As String
-Set goku = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\LIQ_FINAL\BASE FIJO")
+Set vari_1 = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\LIQ_FINAL\BASE FIJO")
 xiaomi = "BASE FIJO"
 ss = xiaomi & ".xlsx"
 Windows(ss).Activate
@@ -2317,7 +2351,7 @@ Range("G1").ClearContents
 Sheets("LIQUIDADOR").Select
 Range("B3").Select
 col = Selection.End(xlDown).Row
-Sheets("LIQUIDADOR").Range("A4:BI" & col).Select
+Sheets("LIQUIDADOR").Range("A4:CB" & col).Select
 Selection.ClearContents
 Range("A1").Select
 Sheets("DESARROLLO+PROYECTOS").Select
@@ -2346,7 +2380,7 @@ Range("A1").Select
 Sheets("Base Móvil").Select
 Range("A1").Select
 coo = Selection.End(xlDown).Row
-Sheets("Base Móvil").Range("A2:AR" & coo).Select
+Sheets("Base Móvil").Range("A2:AT" & coo).Select
 Selection.ClearContents
 Range("A1").Select
 Sheets("HC").Select
@@ -2356,13 +2390,9 @@ Sheets("HC").Range("A2:V" & cool).Select
 Selection.ClearContents
 Range("A1").Select
 Sheets("Proyectos-Desarrollo").Select
-Range("A3").Select
-Range(Selection, Selection.End(xlToRight)).Select
-Range(Selection, Selection.End(xlDown)).Select
-Selection.ClearContents
-Range("H3").Select
-Range(Selection, Selection.End(xlToRight)).Select
-Range(Selection, Selection.End(xlDown)).Select
+Range("A2").Select
+coo = Selection.End(xlDown).Row
+Sheets("Proyectos-Desarrollo").Range("A3:O" & coo).Select
 Selection.ClearContents
 Range("D3").Select
 Sheets("Garantizados").Select
@@ -2381,7 +2411,7 @@ Range("A1").Select
 Sheets("Meta General").Select
 Range("A1").Select
 coll = Selection.End(xlDown).Row
-Sheets("Meta General").Range("A2:L" & coll).Select
+Sheets("Meta General").Range("A2:O" & coll).Select
 Selection.ClearContents
 Range("S1").ClearContents
 Range("XFD1").ClearContents
@@ -2418,6 +2448,12 @@ real = Selection.End(xlDown).Row
 Sheets("Neto Movil").Range("A3:G" & real).Select
 Selection.ClearContents
 Range("A1").Select
+Sheets("MESH_NUEVO").Select
+Range("A2").Select
+real = Selection.End(xlDown).Row
+Sheets("MESH_NUEVO").Range("A2:EE" & real).Select
+Selection.ClearContents
+Range("A1").Select
 MsgBox "LISTO PRIMERA FASE", vbInformation
 Call golovin
 MsgBox "Plantilla de liquidación borrada con éxito, el ejecutable de excel se cerrará", vbInformation
@@ -2430,12 +2466,12 @@ Sub ergo()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
+Dim vari_1 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
 Dim nomlib As String
-Set goku = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\LIQ_FINAL\BASE MOVIL")
+Set vari_1 = Workbooks.Open("D:\AUTOMA_FULL_NEGOCIOS\LIQ_FINAL\BASE MOVIL")
 xiaomi = "BASE MOVIL"
 ss = xiaomi & ".xlsx"
 Windows(ss).Activate
@@ -2491,8 +2527,8 @@ Sub dark()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
@@ -2502,8 +2538,8 @@ Do While archivos <> ""
 Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\NETO FIJO\" & archivos
 archivos = Dir
 Loop
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Range("A3").Select
 cool = Selection.End(xlDown).Row
@@ -2594,7 +2630,7 @@ For h = 1 To fav
     ActiveCell.Offset(0, 1).Range("A1").Select
     ActiveCell.FormulaR1C1 = _
         "=IF(OR(RC[-18]=""CONSULTOR"",RC[-18]=""ESPECIALISTA""),SUMIFS('Base Móvil'!C[2],'Base Móvil'!C[-2],LIQUIDADOR!RC[-19],'Base Móvil'!C[10],""Ok Fechas"",'Base Móvil'!C[14],""a""),IF(OR(RC[-18]=""COORDINADOR"",RC[-18]=""COORCAN""),SUMIFS('Base Móvil'!C[2],'Base Móvil'!C[-4],LIQUIDADOR!RC[-19],'Base Móvil'!C[10],""Ok Fechas"",'Base Móvil'!C[14],""a""),IF(RC[-18]=""JEFE"",SUMIFS('Base Móvil'!C[2]," & _
-        "'Base Móvil'!C[-6],LIQUIDADOR!RC[-19],'Base Móvil'!C[10],""Ok Fechas"",'Base Móvil'!C[14],""a""),IF(RC[-18]=""JEFECAN"",SUMIFS('Base Móvil'!C[2],'Base Móvil'!C[13],LIQUIDADOR!RC[-19],'Base Móvil'!C[10],""Ok Fechas"",'Base Móvil'!C[14],""a""),IF(RC[-18]=""GERENTE"",SUMIFS('Base Móvil'!C[2],'Base Móvil'!C[-8],LIQUIDADOR!RC[-19],'Base Móvil'!C[10],""Ok Fechas"",'Base Móvil'!C[14],""a""),IF(RC[-18]=""DIRECTOR"",SUMIFS('Base Móvil'!C[2],'Base Móvil'!C[10],""Ok Fechas"",'Base Móvil'!C[14],""a""),IF(RC[-18]=""JEFETMK"",SUMIFS('Base Móvil'!C[2],'Base Móvil'!C[-8],LIQUIDADOR!RC[-19],'Base Móvil'!C[10],""Ok Fechas"",'Base Móvil'!C[14],""a""))))))))"
+        "'Base Móvil'!C[-6],LIQUIDADOR!RC[-19],'Base Móvil'!C[10],""Ok Fechas"",'Base Móvil'!C[14],""a""),IF(RC[-18]=""JEFECAN"",SUMIFS('Base Móvil'!C[2],'Base Móvil'!C[13],LIQUIDADOR!RC[-19],'Base Móvil'!C[10],""Ok Fechas"",'Base Móvil'!C[14],""a""),IF(RC[-18]=""GERENTE"",SUMIFS('Base Móvil'!C[2],'Base Móvil'!C[-8],LIQUIDADOR!RC[-19],'Base Móvil'!C[10],""Ok Fechas"",'Base Móvil'!C[14],""a""),IF(RC[-18]=""DIRECTOR"",SUMIFS('Base Móvil'!C[2],'Base Móvil'!C[10],""Ok Fechas"",'Base Móvil'!C[14],""a""),IF(RC[-18]=""JEFETMK"",SUMIFS('Base Móvil'!C[2],'Base Móvil'!C[-8],LIQUIDADOR!RC[-19],'Base Móvil'!C[10],""Ok Fechas"",'Base Móvil'!C[14],""a"",'Base Móvil'!C[22],""SONIA PEÑA""))))))))"
     ActiveCell.Offset(0, 1).Range("A1").Select
     ActiveCell.FormulaR1C1 = "=IFERROR(RC[-1]/RC[-2],0)"
     ActiveCell.Offset(0, 1).Range("A1").Select
@@ -2670,10 +2706,11 @@ For h = 1 To fav
     ActiveCell.Offset(0, 1).Range("A1").Select
     ActiveCell.FormulaR1C1 = "=RC[-1]*RC[-42]"
     ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=SUM(RC[-31],RC[-20],RC[-11],RC[-3])"
+    ActiveCell.FormulaR1C1 = _
+        "=SUM(RC[-31],RC[-20],RC[-11],RC[-3])+RC[10]+RC[19]+RC[9]"
     ActiveCell.Offset(0, 1).Range("A1").Select
     ActiveCell.FormulaR1C1 = _
-        "=SUM(RC[-2]:RC[-1])+RC[8]+VLOOKUP(RC[-48],'DESARROLLO+PROYECTOS'!C3:C34,32,0)"
+        "=SUM(RC[-2]:RC[-1])+VLOOKUP(RC[-48],'DESARROLLO+PROYECTOS'!C3:C34,32,0)"
     ActiveCell.Offset(0, 1).Range("A1").Select
     ActiveCell.FormulaR1C1 = _
         "=IF(AND(RC[5]>0,RC[-1]>0,RC[-1]<RC[5]),0,IF(AND(RC[-1]>0,RC[-1]>0,RC[-1]>RC[5]),RC[-1]-RC[5],RC[-1]))"
@@ -2692,7 +2729,10 @@ For h = 1 To fav
     ActiveCell.Offset(0, 1).Range("A1").Select
     ActiveCell.FormulaR1C1 = _
         "=IFERROR(IF(AND(RC[-1]>=60%,RC[-1]<=69.99%),(SUMIFS('Base Móvil'!C[-18],'Base Móvil'!C[-17],RC[-56]))*5%,IF(AND(RC[-1]>=70%,RC[-1]<=89.99%),(SUMIFS('Base Móvil'!C[-18],'Base Móvil'!C[-17],RC[-56]))*10%,IF(RC[-1]>=90%,(SUMIFS('Base Móvil'!C[-18],'Base Móvil'!C[-17],RC[-56]))*20%,0))),0)"
-    ActiveCell.Offset(0, 2).Range("A1").Select
+    ActiveCell.Offset(0, 1).Range("A1").Select
+    ActiveCell.FormulaR1C1 = _
+        "=IF(RC[-56]=""CONSULTOR"",(SUMIFS(MESH_NUEVO!C133,MESH_NUEVO!C[47],RC[-57],MESH_NUEVO!C[31],""Legalizado"")*4500),0)"
+    ActiveCell.Offset(0, 1).Range("A1").Select
     ActiveCell.FormulaR1C1 = "=AVERAGE(RC[-49],RC[-38],RC[-27],RC[-18])"
     ActiveCell.Offset(0, 2).Range("A1").Select
     ActiveCell.FormulaR1C1 = "=IFERROR(VLOOKUP(RC[-60],'Meta General'!C1:C13,13,0),0)"
@@ -2718,8 +2758,8 @@ Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Call marcolis
 Dim archivos
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
@@ -2729,12 +2769,12 @@ Do While archivos <> ""
 Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\LIQ_FINAL\" & archivos
 archivos = Dir
 Loop
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Sheets("Meses").Select
-RATA = Range("F1").Value
-cr7 = Range("G1").Value
+vari_3 = Range("F1").Value
+vari_4 = Range("G1").Value
 Range("A1").Select
 Sheets("HC").Visible = False
 Sheets("Neto Fijo").Select
@@ -2769,7 +2809,7 @@ Sheets("Meta General").Protect Password:="TOP"
 ActiveWorkbook.Protect ("TOP")
 Sheets("LIQUIDADOR").Select
 RUTA = "D:\AUTOMA_FULL_NEGOCIOS\LIQ_FINAL\"
-GENERAR_ARCHIVO_EXCEL = RUTA & "Liq_" & RATA & cr7 & "_Negocios_VAL" & ".xlsx"
+GENERAR_ARCHIVO_EXCEL = RUTA & "Liq_" & vari_3 & vari_4 & "_Negocios_VAL" & ".xlsx"
 ActiveWorkbook.SaveAs Filename:= _
 GENERAR_ARCHIVO_EXCEL, FileFormat:= _
 xlOpenXMLWorkbook, Password:="3392", CreateBackup:=False
@@ -2781,15 +2821,15 @@ Call arm
 Kill ("D:\AUTOMA_FULL_NEGOCIOS\LIQ_FINAL\*.xlsm")
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 MsgBox "Por favor espere DOS minutos mientras se enfría el procesador, de lo contrario la memoria se desboradará", vbInformation
 End Sub
 Sub arm()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
@@ -2799,16 +2839,16 @@ Do While archivos <> ""
 Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\LIQ_FINAL\" & archivos
 archivos = Dir
 Loop
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Sheets("Meses").Select
-RATA = Range("F1").Value
-cr7 = Range("G1").Value
+vari_3 = Range("F1").Value
+vari_4 = Range("G1").Value
 Range("A1").Select
 Sheets("LIQUIDADOR").Select
 RUTA = "D:\AUTOMA_FULL_NEGOCIOS\LIQ_FINAL\"
-GENERAR_ARCHIVO_EXCEL = RUTA & "Liq_" & RATA & cr7 & "_Negocios" & ".xlsx"
+GENERAR_ARCHIVO_EXCEL = RUTA & "Liq_" & vari_3 & vari_4 & "_Negocios" & ".xlsx"
 ActiveWorkbook.SaveAs Filename:= _
 GENERAR_ARCHIVO_EXCEL, FileFormat:= _
 xlOpenXMLWorkbook, CreateBackup:=False
@@ -2871,6 +2911,9 @@ Application.CutCopyMode = False
 Range("A1").Select
 Range("W1") = "CFM_ACTUAL / CARGA"
 ActiveSheet.ShowAllData
+Columns("BC:BC").Select
+Selection.Delete Shift:=xlToLeft
+Range("BC1").Select
 MsgBox "LISTO SEGUNDA FASE", vbInformation
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
@@ -2880,15 +2923,15 @@ Application.Calculation = xlCalculationAutomatic
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos, motorola As String
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
 Dim nomlib As String
 Workbooks.Add
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
 Sheets("Base Fijos").Select
@@ -3072,7 +3115,7 @@ simpson = ActiveWorkbook.Name
 hh = simpson
 Windows(hh).Activate
 ActiveWorkbook.Close SaveChanges:=True
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 MsgBox "Por favor espere 1 minuto mientras se enfría el procesador, de lo contrario la memoria se desboradará", vbInformation
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
@@ -3082,15 +3125,15 @@ Application.Calculation = xlCalculationAutomatic
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos, motorola As String
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
 Dim nomlib As String
 Workbooks.Add
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
 Sheets("Base Móvil").Select
@@ -3267,7 +3310,7 @@ simpson = ActiveWorkbook.Name
 hh = simpson
 Windows(hh).Activate
 ActiveWorkbook.Close SaveChanges:=True
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 MsgBox "FELICIDADES CAMPEONA DE CAMPEONAS, MUJER EMPODERADA Y LUCHONA...SE REALIZÓ LA LIQUIDACIÓN COMPLETA EN MENOS DE 45 MINUTOS, EL SISTEMA SE CERRARÁ SOLO POR FAVOR ESPERE", vbInformation
 ActiveWorkbook.Close SaveChanges:=True
 Application.Quit
@@ -3282,156 +3325,151 @@ Sheets("LIQUIDADOR").Select
 Range("D3").Select
 Selection.End(xlDown).Select
 ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=VLOOKUP(RC[-3],HC!C1:C3,3,0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=VLOOKUP(RC[-4],'DESARROLLO+PROYECTOS'!C3:C9,7,0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=Meses!R1C8"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IFERROR(VLOOKUP(RC[-6],'Meta General'!C[-7]:C[4],5,0),0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IFERROR(IF(AND(RC[44]>=5,RC[44]<14,RC[1]/RC[-1]<0.6),RC[-1]*70%,IF(AND(RC[44]>=15,RC[1]/RC[-1]<0.6),RC[-1]*50%,RC[-1])),0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-    "=IF(RC[-7]=""CONSULTOR"",SUMIFS('Base Fijos'!C[7],'Base Fijos'!C[-4],LIQUIDADOR!RC[-8]),IF(RC[-7]=""ESPECIALISTA"",SUMIFS('Base Fijos'!C[7],'Base Fijos'!C[21],LIQUIDADOR!RC[-8]),IF(RC[-7]=""COORDINADOR"",SUMIFS('Base Fijos'!C[7],'Base Fijos'!C[21],LIQUIDADOR!RC[-8])+SUMIFS('Base Fijos'!C[7],'Base Fijos'!C[35],LIQUIDADOR!RC[-8]),IF(RC[-7]=""JEFE"",SUMIFS('Base Fijos'!C[7],'Base Fijos'!C[19],LIQUIDADOR!RC[-8]),IF(RC[-7]=""JEFECAN"",SUMIFS('Base Fijos'!C[7],'Base Fijos'!C[38],LIQUIDADOR!RC[-8]),IF(RC[-7]=""JEFETMK"",SUMIFS('Base Fijos'!C[7],'Base Fijos'!C[32],LIQUIDADOR!RC[-8]),IF(RC[-7]=""GERENTE"",SUMIFS('Base Fijos'!C[7],'Base Fijos'!C[34],LIQUIDADOR!RC[-8])+SUMIFS('Base Fijos'!C[7],'Base Fijos'!C[32],LIQUIDADOR!RC[-8]),IF(RC[-7]=""DIRECTOR"",SUM('Base Fijos'!C[7],),0))))))))"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=IFERROR(RC[-1]/RC[-2],0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-    "=IF(RC[-4]=RC[-3],IF(RC[-9]=""CONSULTOR"",SUMIFS('Base Fijos'!C[15],'Base Fijos'!C[-6],LIQUIDADOR!RC[-10]),IF(RC[-9]=""ESPECIALISTA"",SUMIFS('Base Fijos'!C[15],'Base Fijos'!C[19],LIQUIDADOR!RC[-10]),IF(RC[-9]=""COORDINADOR"",SUMIFS('Base Fijos'!C[15],'Base Fijos'!C[19],LIQUIDADOR!RC[-10])+SUMIFS('Base Fijos'!C[15],'Base Fijos'!C[33],LIQUIDADOR!RC[-10]),IF(RC[-9]=""JEFE"",SUMIFS('Base Fijos'!C[15],'Base Fijos'!C[17],LIQUIDADOR!RC[-10]),IF(RC[-9]=""JEFECAN"",SUMIFS('Base Fijos'!C[15],'Base Fijos'!C[36],LIQUIDADOR!RC[-10]),IF(RC[-9]=""JEFETMK"",SUMIFS('Base Fijos'!C[15],'Base Fijos'!C[30],LIQUIDADOR!RC[-10]),IF(RC[-9]=""GERENTE"",SUMIFS('Base Fijos'!C[15],'Base Fijos'!C[32],LIQUIDADOR!RC[-10])+IF(RC[-9]=""GERENTE"",SUMIFS('Base Fijos'!C[15],'Base Fijos'!C[30],LIQUIDADOR!RC[-10]),0),IF(RC[-9]=""DIRECTOR"",SUM('Base Fijos'!C[15],),0)))))))),RC[-2])"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=IFERROR(SUM((IF(RC[-2]>=0.8,RC[-2]+((RC[-1]-RC[-3])/RC[-4]),RC[-3]/RC[-4])),RC[21]),0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=RC[-1]"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IF((IF(AND(RC[-2]>=100%,RC[9]>100%),IF(RC[-1]>RC[-2],RC[-1],RC[-2]),RC[-1]))>=400%,400%,IF(AND(RC[-2]>=100%,RC[9]>100%),IF(RC[-1]>RC[-2],RC[-1],RC[-2]),RC[-1]))"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=VLOOKUP(RC[-13],FX!R3C2:R11C6,2,0)*RC[-1]"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=RC[-1]*RC[-11]"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IF(RC[-10]=RC[-9],VLOOKUP(RC[-7],FX!R40C3:R49C5,3,TRUE)*VLOOKUP(RC[-15],FX!R2C2:R11C6,2,0),0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IFERROR(VLOOKUP(RC[-17],'Meta General'!C[-18]:C[-7],9,0),0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IFERROR(IF(AND(RC[33]>=5,RC[33]<15,RC[1]/RC[-1]<60%),RC[-1]*70%,IF(AND(RC[33]>=15,RC[1]/RC[-1]<60%),RC[-1]*50%,RC[-1])),0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IF(OR(RC[-18]=""CONSULTOR"",RC[-18]=""ESPECIALISTA""),SUMIFS('Base Móvil'!C[2],'Base Móvil'!C[-2],LIQUIDADOR!RC[-19],'Base Móvil'!C[10],""Ok Fechas"",'Base Móvil'!C[14],""a""),IF(OR(RC[-18]=""COORDINADOR"",RC[-18]=""COORCAN""),SUMIFS('Base Móvil'!C[2],'Base Móvil'!C[-4],LIQUIDADOR!RC[-19],'Base Móvil'!C[10],""Ok Fechas"",'Base Móvil'!C[14],""a""),IF(RC[-18]=""JEFE"",SUMIFS('Base Móvil'!C[2]," & _
-        "'Base Móvil'!C[-6],LIQUIDADOR!RC[-19],'Base Móvil'!C[10],""Ok Fechas"",'Base Móvil'!C[14],""a""),IF(RC[-18]=""JEFECAN"",SUMIFS('Base Móvil'!C[2],'Base Móvil'!C[13],LIQUIDADOR!RC[-19],'Base Móvil'!C[10],""Ok Fechas"",'Base Móvil'!C[14],""a""),IF(RC[-18]=""GERENTE"",SUMIFS('Base Móvil'!C[2],'Base Móvil'!C[-8],LIQUIDADOR!RC[-19],'Base Móvil'!C[10],""Ok Fechas"",'Base Móvil'!C[14],""a""),IF(RC[-18]=""DIRECTOR"",SUMIFS('Base Móvil'!C[2],'Base Móvil'!C[10],""Ok Fechas"",'Base Móvil'!C[14],""a""),IF(RC[-18]=""JEFETMK"",SUMIFS('Base Móvil'!C[2],'Base Móvil'!C[-8],LIQUIDADOR!RC[-19],'Base Móvil'!C[10],""Ok Fechas"",'Base Móvil'!C[14],""a""))))))))"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=IFERROR(RC[-1]/RC[-2],0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IF(RC[-4]=RC[-3],IF(OR(RC[-20]=""CONSULTOR"",RC[-20]=""ESPECIALISTA""),SUMIFS('Base Móvil'!C[4],'Base Móvil'!C[-4],LIQUIDADOR!RC[-21],'Base Móvil'!C[8],""Ok Fechas"",'Base Móvil'!C[12],""a""),IF(OR(RC[-20]=""COORDINADOR"",RC[-20]=""COORCAN""),SUMIFS('Base Móvil'!C[4],'Base Móvil'!C[-6],LIQUIDADOR!RC[-21],'Base Móvil'!C[8],""Ok Fechas"",'Base Móvil'!C[12],""a""),IF(RC[-20]=""JEFE"",SUMIFS('Base Móvil'!C[4],'Base Móvil'!C[-8],LIQUIDADOR!RC[-21],'Base Móvil'!C[8],""Ok Fechas"",'Base Móvil'!C[12],""a""),IF(RC[-20]=""JEFECAN"",SUMIFS('Base Móvil'!C[4],'Base Móvil'!C[11],LIQUIDADOR!RC[-21],'Base Móvil'!C[8],""Ok Fechas"",'Base Móvil'!C[12],""a""),IF(RC[-20]=""GERENTE"",SUMIFS('Base Móvil'!C[4],'Base Móvil'!C[-10],LIQUIDADOR!RC[-21]," & _
-        "'Base Móvil'!C[8],""Ok Fechas"",'Base Móvil'!C[12],""a""),IF(RC[-20]=""DIRECTOR"",SUMIFS('Base Móvil'!C[4],'Base Móvil'!C[8],""Ok Fechas"",'Base Móvil'!C[12],""a""),IF(RC[-20]=""JEFETMK"",SUMIFS('Base Móvil'!C[4],'Base Móvil'!C[-10],LIQUIDADOR!RC[-21],'Base Móvil'!C[8],""Ok Fechas"",'Base Móvil'!C[12],""a"")))))))),RC[-2])"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-     ActiveCell.FormulaR1C1 = "=IFERROR(RC[-1]/RC[-4],0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=RC[-1]"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IF((IF(AND(RC[-2]>=100%,RC[-13]>100%),IF(RC[-1]>RC[-2],RC[-1],RC[-2]),RC[-1]))>=400%,400%,(IF(AND(RC[-2]>=100%,RC[-13]>100%),IF(RC[-1]>RC[-2],RC[-1],RC[-2]),RC[-1])))+RC[39]"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=VLOOKUP(RC[-24],FX!R3C2:R11C6,3,0)*RC[-1]"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=RC[-1]*RC[-22]"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IF(RC[-10]=RC[-9],VLOOKUP(RC[-7],FX!R40C3:R49C5,3,TRUE)*VLOOKUP(RC[-26],FX!R2C2:R11C6,3,0),0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IFERROR(VLOOKUP(RC[-28],'Meta General'!C[-29]:C[-18],4,0),0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IFERROR(IF(AND(RC[22]>=5,RC[22]<15,RC[1]/RC[-1]<60%),RC[-1]*70%,IF(AND(RC[22]>=15,RC[1]/RC[-1]<60%),RC[-1]*50%,RC[-1])),0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=SUM(IF(RC[-29]=""CONSULTOR"",SUMIFS('Base Fijos'!C[-15],'Base Fijos'!C[-26],LIQUIDADOR!RC[-30],'Base Fijos'!C[-22],""RETO""),IF(RC[-29]=""ESPECIALISTA"",SUMIFS('Base Fijos'!C[-15],'Base Fijos'!C[-1],LIQUIDADOR!RC[-30],'Base Fijos'!C[-22],""RETO""),IF(RC[-29]=""COORDINADOR"",SUM(SUMIFS('Base Fijos'!C[-15],'Base Fijos'!C[-1],LIQUIDADOR!RC[-30],'Base Fijos'!C[-22],""RETO""),SUMIFS('Base Fijos'!C[-15],'Base Fijos'!C[13],LIQUIDADOR!RC[-30],'Base Fijos'!C[-22],""RETO"")),IF(RC[-29]=""JEFE"",SUMIFS('Base Fijos'!C[-15],'Base Fijos'!C[-3],LIQUIDADOR!RC[-30],'Base Fijos'!C[-22],""RETO""),IF(RC[-29]=""JEFECAN"",SUMIFS('Base Fijos'!C[-15],'Base Fijos'!C[16],LIQUIDADOR!RC[-30],'Base Fijos'!C[-22],""RETO""),IF(RC[-29]=""JEFETMK"",SUMIFS('Base Fijos'!C[-15]," & _
-        "'Base Fijos'!C[10],LIQUIDADOR!RC[-30],'Base Fijos'!C[-22],""RETO""),IF(RC[-29]=""GERENTE"",SUM(SUMIFS('Base Fijos'!C[-15],'Base Fijos'!C[12],LIQUIDADOR!RC[-30],'Base Fijos'!C[-22],""RETO""),SUMIFS('Base Fijos'!C[-15],'Base Fijos'!C[10],LIQUIDADOR!RC[-30],'Base Fijos'!C[-22],""RETO"")),IF(RC[-29]=""DIRECTOR"",SUMIFS('Base Fijos'!C[-15],'Base Fijos'!C[-22],""RETO""),0)))))))),IF(OR(RC[-29]=""CONSULTOR"",RC[-29]=""ESPECIALISTA""),SUMIFS('Base Móvil'!C[-9],'Base Móvil'!C[-13],LIQUIDADOR!RC[-30],'Base Móvil'!C[-1],""Ok Fechas"",'Base Móvil'!C[3],""a"",'Base Móvil'!C[5],""RETO ESTRATEGICO""),IF(OR(RC[-29]=""COORDINADOR"",RC[-29]=""COORCAN""),SUMIFS('Base Móvil'!C[-9],'Base Móvil'!C[-15],LIQUIDADOR!RC[-30],'Base Móvil'!C[-1],""Ok Fechas""," & _
-        "'Base Móvil'!C[3],""a"",'Base Móvil'!C[5],""RETO ESTRATEGICO""),IF(OR(RC[-29]=""JEFE"",RC[-29]=""JEFETMK""),SUMIFS('Base Móvil'!C[-9],'Base Móvil'!C[-17],LIQUIDADOR!RC[-30],'Base Móvil'!C[-1],""Ok Fechas"",'Base Móvil'!C[3],""a"",'Base Móvil'!C[5],""RETO ESTRATEGICO""),IF(RC[-29]=""JEFECAN"",SUMIFS('Base Móvil'!C[-9],'Base Móvil'!C[2],LIQUIDADOR!RC[-30],'Base Móvil'!C[-1],""Ok Fechas"",'Base Móvil'!C[3],""a"",'Base Móvil'!C[5],""RETO ESTRATEGICO""),IF(RC[-29]=""GERENTE"",SUMIFS('Base Móvil'!C[-9],'Base Móvil'!C[-19],LIQUIDADOR!RC[-30],'Base Móvil'!C[-1],""Ok Fechas"",'Base Móvil'!C[3],""a"",'Base Móvil'!C[5],""RETO ESTRATEGICO""),IF(RC[-29]=""DIRECTOR"",SUMIFS('Base Móvil'!C[-9],'Base Móvil'!C[-1],""Ok Fechas"",'Base Móvil'!C[3],""a""," & _
-        "'Base Móvil'!C[5],""RETO ESTRATEGICO""),0)))))))"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=IFERROR(RC[-1]/RC[-2],0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IFERROR(IF(AND(RC[-1]>=1,RC[-31]=""DIRECTOR""),VLOOKUP(RC[-23],FX!R30C3:R36C5,3,1),0),0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=RC[-2]"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=VLOOKUP(RC[-33],FX!R3C2:R11C6,4,0)*RC[-1]"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=RC[-1]*RC[-31]"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IF(RC[-8]=RC[-7],VLOOKUP(RC[-5],FX!R40C3:R49C5,3,TRUE)*VLOOKUP(RC[-35],FX!R2C2:R11C6,4,0),0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IFERROR(VLOOKUP(RC[-37],'Meta General'!C[-38]:C[-27],12,0),0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IFERROR(IF(AND(RC[13]>=5,RC[13]<15,RC[1]/RC[-1]<60%),RC[-1]*70%,IF(AND(RC[13]>=15,RC[1]/RC[-1]<60%),RC[-1]*50%,RC[-1])),0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IFERROR(VLOOKUP(RC[-39],'Neto Fijo'!C1:C7,7,0),0)+IFERROR(VLOOKUP(RC[-39],'Neto Movil'!C1:C7,7,0),0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=IFERROR(RC[-1]/RC[-2],0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IF(RC[-1]<5%,0,IF(VLOOKUP(RC[-1],FX!R64C3:R77C5,3,TRUE)=""Lineal"",RC[-1],VLOOKUP(RC[-1],FX!R64C3:R77C5,3,TRUE)))"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=VLOOKUP(RC[-41],FX!R3C2:R11C6,5,0)*RC[-1]"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=RC[-1]*RC[-39]"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IF(RC[-7]=RC[-6],IFERROR(VLOOKUP(RC[-4],FX!R40C3:R49C5,3,TRUE)*VLOOKUP(RC[-43],FX!R2C2:R11C6,5,0),0),0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=SUM(RC[-31],RC[-20],RC[-11],RC[-3])"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=RC[-1]*RC[-42]"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=SUM(RC[-31],RC[-20],RC[-11],RC[-3])"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=SUM(RC[-2]:RC[-1])+RC[8]+VLOOKUP(RC[-48],'DESARROLLO+PROYECTOS'!C3:C34,32,0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IF(AND(RC[5]>0,RC[-1]>0,RC[-1]<RC[5]),0,IF(AND(RC[-1]>0,RC[-1]>0,RC[-1]>RC[5]),RC[-1]-RC[5],RC[-1]))"
-    ActiveCell.Offset(0, 2).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IF(RC[-50]=""CONSULTOR"",IFERROR(VLOOKUP(RC[-51],Vacaciones!C[-52]:C[-46],6,0),0),0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = ""
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = ""
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IFERROR(VLOOKUP(RC[-54],Garantizados!C[-53]:C[-50],3,0),0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=IFERROR(AVERAGE(RC[-46],RC[-35]),0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IFERROR(IF(AND(RC[-1]>=60%,RC[-1]<=69.99%),(SUMIFS('Base Móvil'!C[-18],'Base Móvil'!C[-17],RC[-56]))*5%,IF(AND(RC[-1]>=70%,RC[-1]<=89.99%),(SUMIFS('Base Móvil'!C[-18],'Base Móvil'!C[-17],RC[-56]))*10%,IF(RC[-1]>=90%,(SUMIFS('Base Móvil'!C[-18],'Base Móvil'!C[-17],RC[-56]))*20%,0))),0)"
-    ActiveCell.Offset(0, 2).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=AVERAGE(RC[-49],RC[-38],RC[-27],RC[-18])"
-    ActiveCell.Offset(0, 2).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=IFERROR(VLOOKUP(RC[-60],'Meta General'!C1:C13,13,0),0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IF(OR(RC[-60]=""CONSULTOR"",RC[-60]=""ESPECIALISTA""),SUMIFS('Base Móvil'!C[-40],'Base Móvil'!C[-44],LIQUIDADOR!RC[-61],'Base Móvil'!C[-32],""Ok Fechas"",'Base Móvil'!C[-28],""a"",'Base Móvil'!C[-21],""CONVERGENCIA""),IF(OR(RC[-60]=""COORDINADOR"",RC[-60]=""COORCAN""),SUMIFS('Base Móvil'!C[-40],'Base Móvil'!C[-46],LIQUIDADOR!RC[-61],'Base Móvil'!C[-32],""Ok Fechas"",'Base Móvil'!C[-28],""a"",'Base Móvil'!C[-21],""CONVERGENCIA""),IF(RC[-60]=""JEFE"",SUMIFS('Base Móvil'!C[-40],'Base Móvil'!C[-48],LIQUIDADOR!RC[-61],'Base Móvil'!C[-32],""Ok Fechas"",'Base Móvil'!C[-28],""a"",'Base Móvil'!C[-21],""CONVERGENCIA""),IF(RC[-60]=""JEFECAN"",SUMIFS('Base Móvil'!C[-40],'Base Móvil'!C[-29],LIQUIDADOR!RC[-61],'Base Móvil'!C[-32],""Ok Fechas""," & _
-        "'Base Móvil'!C[-28],""a"",'Base Móvil'!C[-21],""CONVERGENCIA""),IF(RC[-60]=""GERENTE"",SUMIFS('Base Móvil'!C[-40],'Base Móvil'!C[-50],LIQUIDADOR!RC[-61],'Base Móvil'!C[-32],""Ok Fechas"",'Base Móvil'!C[-28],""a"",'Base Móvil'!C[-21],""CONVERGENCIA""),IF(RC[-60]=""DIRECTOR"",SUMIFS('Base Móvil'!C[-40],'Base Móvil'!C[-32],""Ok Fechas"",'Base Móvil'!C[-28],""a"",'Base Móvil'!C[-21],""CONVERGENCIA""),IF(RC[-60]=""JEFETMK"",SUMIFS('Base Móvil'!C[-40],'Base Móvil'!C[-50],LIQUIDADOR!RC[-61],'Base Móvil'!C[-32],""Ok Fechas"",'Base Móvil'!C[-28],""a"",'Base Móvil'!C[-21],""CONVERGENCIA""))))))))"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = "=IFERROR(RC[-1]/RC[-2],0)"
-    ActiveCell.Offset(0, 1).Range("A1").Select
-    ActiveCell.FormulaR1C1 = _
-        "=IF(RC[-43]>=60%,IF(AND(RC[-1]>=80%,RC[-1]<100%),5%,IF(RC[-1]>=100%,10%,0)),0%)"
+ActiveCell.FormulaR1C1 = "=VLOOKUP(RC[-3],HC!C1:C3,3,0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=VLOOKUP(RC[-4],'DESARROLLO+PROYECTOS'!C3:C9,7,0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=Meses!R1C8"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IFERROR(VLOOKUP(RC[-6],'Meta General'!C[-7]:C[4],5,0),0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IFERROR(IF(AND(RC[44]>=5,RC[44]<14,RC[1]/RC[-1]<0.6),RC[-1]*70%,IF(AND(RC[44]>=15,RC[1]/RC[-1]<0.6),RC[-1]*50%,RC[-1])),0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=IF(RC[-7]=""DIRECTOR"",SUM('Base Fijos'!C[7],),0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=IFERROR(RC[-1]/RC[-2],0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IF(RC[-4]=RC[-3],IF(RC[-9]=""DIRECTOR"",SUM('Base Fijos'!C[15],),0),RC[-2])"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IFERROR(SUM((IF(RC[-2]>=0.8,RC[-2]+((RC[-1]-RC[-3])/RC[-4]),RC[-3]/RC[-4])),RC[21]),0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=RC[-1]"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IF((IF(AND(RC[-2]>=100%,RC[9]>100%),IF(RC[-1]>RC[-2],RC[-1],RC[-2]),RC[-1]))>=400%,400%,IF(AND(RC[-2]>=100%,RC[9]>100%),IF(RC[-1]>RC[-2],RC[-1],RC[-2]),RC[-1]))"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=VLOOKUP(RC[-13],FX!R3C2:R11C6,2,0)*RC[-1]"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=RC[-1]*RC[-11]"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IF(RC[-10]=RC[-9],VLOOKUP(RC[-7],FX!R40C3:R49C5,3,TRUE)*VLOOKUP(RC[-15],FX!R2C2:R11C6,2,0),0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IFERROR(VLOOKUP(RC[-17],'Meta General'!C[-18]:C[-7],9,0),0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IFERROR(IF(AND(RC[33]>=5,RC[33]<15,RC[1]/RC[-1]<60%),RC[-1]*70%,IF(AND(RC[33]>=15,RC[1]/RC[-1]<60%),RC[-1]*50%,RC[-1])),0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IF(RC[-18]=""DIRECTOR"",SUMIFS('Base Móvil'!C[2],'Base Móvil'!C[10],""Ok Fechas"",'Base Móvil'!C[14],""a"",'Base Móvil'!C[22],""SONIA PEÑA""),0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=IFERROR(RC[-1]/RC[-2],0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IF(RC[-4]=RC[-3],IF(RC[-20]=""DIRECTOR"",SUMIFS('Base Móvil'!C[4],'Base Móvil'!C[8],""Ok Fechas"",'Base Móvil'!C[12],""a"",'Base Móvil'!C[20],""SONIA PEÑA"")))"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=IFERROR(RC[-1]/RC[-4],0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=RC[-1]"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IF((IF(AND(RC[-2]>=100%,RC[-13]>100%),IF(RC[-1]>RC[-2],RC[-1],RC[-2]),RC[-1]))>=400%,400%,(IF(AND(RC[-2]>=100%,RC[-13]>100%),IF(RC[-1]>RC[-2],RC[-1],RC[-2]),RC[-1])))+RC[39]"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=VLOOKUP(RC[-24],FX!R3C2:R11C6,3,0)*RC[-1]"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=RC[-1]*RC[-22]"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IF(RC[-10]=RC[-9],VLOOKUP(RC[-7],FX!R40C3:R49C5,3,TRUE)*VLOOKUP(RC[-26],FX!R2C2:R11C6,3,0),0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IFERROR(VLOOKUP(RC[-28],'Meta General'!C[-29]:C[-18],4,0),0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IFERROR(IF(AND(RC[22]>=5,RC[22]<15,RC[1]/RC[-1]<60%),RC[-1]*70%,IF(AND(RC[22]>=15,RC[1]/RC[-1]<60%),RC[-1]*50%,RC[-1])),0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=SUM(IF(RC[-29]=""DIRECTOR"",SUMIFS('Base Fijos'!C[-15],'Base Fijos'!C[-22],""RETO""),0),IF(RC[-29]=""DIRECTOR"",SUMIFS('Base Móvil'!C[-9],'Base Móvil'!C[-1],""Ok Fechas"",'Base Móvil'!C[3],""a"",'Base Móvil'!C[5],""RETO ESTRATEGICO"",'Base Móvil'!C[11],""SONIA PEÑA""),0))"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=IFERROR(RC[-1]/RC[-2],0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IFERROR(IF(AND(RC[-1]>=1,RC[-31]=""DIRECTOR""),VLOOKUP(RC[-23],FX!R30C3:R36C5,3,1),0),0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=RC[-2]"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=VLOOKUP(RC[-33],FX!R3C2:R11C6,4,0)*RC[-1]"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=RC[-1]*RC[-31]"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IF(RC[-8]=RC[-7],VLOOKUP(RC[-5],FX!R40C3:R49C5,3,TRUE)*VLOOKUP(RC[-35],FX!R2C2:R11C6,4,0),0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IFERROR(VLOOKUP(RC[-37],'Meta General'!C[-38]:C[-27],12,0),0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IFERROR(IF(AND(RC[13]>=5,RC[13]<15,RC[1]/RC[-1]<60%),RC[-1]*70%,IF(AND(RC[13]>=15,RC[1]/RC[-1]<60%),RC[-1]*50%,RC[-1])),0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IFERROR(VLOOKUP(RC[-39],'Neto Fijo'!C1:C7,7,0),0)+IFERROR(VLOOKUP(RC[-39],'Neto Movil'!C1:C7,7,0),0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=IFERROR(RC[-1]/RC[-2],0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IF(RC[-1]<5%,0,IF(VLOOKUP(RC[-1],FX!R64C3:R77C5,3,TRUE)=""Lineal"",RC[-1],VLOOKUP(RC[-1],FX!R64C3:R77C5,3,TRUE)))"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=VLOOKUP(RC[-41],FX!R3C2:R11C6,5,0)*RC[-1]"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=RC[-1]*RC[-39]"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IF(RC[-7]=RC[-6],IFERROR(VLOOKUP(RC[-4],FX!R40C3:R49C5,3,TRUE)*VLOOKUP(RC[-43],FX!R2C2:R11C6,5,0),0),0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=SUM(RC[-31],RC[-20],RC[-11],RC[-3])"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=RC[-1]*RC[-42]"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=SUM(RC[-31],RC[-20],RC[-11],RC[-3])+RC[10]+RC[19]+RC[9]"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=SUM(RC[-2]:RC[-1])+VLOOKUP(RC[-48],'DESARROLLO+PROYECTOS'!C3:C34,32,0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IF(AND(RC[5]>0,RC[-1]>0,RC[-1]<RC[5]),0,IF(AND(RC[-1]>0,RC[-1]>0,RC[-1]>RC[5]),RC[-1]-RC[5],RC[-1]))"
+ActiveCell.Offset(0, 2).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IF(RC[-50]=""CONSULTOR"",IFERROR(VLOOKUP(RC[-51],Vacaciones!C[-52]:C[-46],6,0),0),0)"
+ActiveCell.Offset(0, 3).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IFERROR(VLOOKUP(RC[-54],Garantizados!C[-53]:C[-50],3,0),0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=IFERROR(AVERAGE(RC[-46],RC[-35]),0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IFERROR(IF(AND(RC[-1]>=60%,RC[-1]<=69.99%),(SUMIFS('Base Móvil'!C[-18],'Base Móvil'!C[-17],RC[-56]))*5%,IF(AND(RC[-1]>=70%,RC[-1]<=89.99%),(SUMIFS('Base Móvil'!C[-18],'Base Móvil'!C[-17],RC[-56]))*10%,IF(RC[-1]>=90%,(SUMIFS('Base Móvil'!C[-18],'Base Móvil'!C[-17],RC[-56]))*20%,0))),0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IF(RC[-56]=""CONSULTOR"",(SUMIFS(MESH_NUEVO!C133,MESH_NUEVO!C[47],RC[-57],MESH_NUEVO!C[31],""Legalizado"")*4500),0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=AVERAGE(RC[-49],RC[-38],RC[-27],RC[-18])"
+ActiveCell.Offset(0, 2).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IFERROR(VLOOKUP(RC[-60],'Meta General'!C1:C13,13,0),0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=SUMIFS('Base Móvil'!C[-40],'Base Móvil'!C[-50],LIQUIDADOR!RC[-61],'Base Móvil'!C[-32],""Ok Fechas"",'Base Móvil'!C[-28],""a"",'Base Móvil'!C[-21],""CONVERGENCIA"")"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = "=IFERROR(RC[-1]/RC[-2],0)"
+ActiveCell.Offset(0, 1).Range("A1").Select
+ActiveCell.FormulaR1C1 = _
+    "=IF(RC[-43]>=60%,IF(AND(RC[-1]>=80%,RC[-1]<100%),5%,IF(RC[-1]>=100%,10%,0)),0%)"
 Range("A1").Select
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
@@ -3554,15 +3592,15 @@ Next h
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
 Application.Calculation = xlCalculationAutomatic
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 MsgBox "Por favor espere DOS minutos mientras se enfría el procesador, de lo contrario la memoria se desboradará", vbInformation
 End Sub
 Sub copola()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
-Dim vegueta As Excel.Workbook
+Dim vari_1 As Excel.Workbook
+Dim vari_6 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
@@ -3576,8 +3614,8 @@ Do While archivos <> ""
 Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\ESTADOS\" & archivos
 archivos = Dir
 Loop
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Sheets(1).Select
 Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
@@ -3605,7 +3643,7 @@ Sub dita()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
+Dim vari_1 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
@@ -3615,11 +3653,11 @@ Do While archivos <> ""
 Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\PROYECTOS\" & archivos
 archivos = Dir
 Loop
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
-RATA = Sheets(1).Range("A" & Rows.Count).End(xlUp).Row
-Sheets(1).Range("A4:F" & RATA).Copy
+vari_3 = Sheets(1).Range("A" & Rows.Count).End(xlUp).Row
+Sheets(1).Range("A4:F" & vari_3).Copy
 Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
 Sheets("Proyectos-Desarrollo").Select
 Range("A3").Select
@@ -3637,7 +3675,7 @@ Sub BRUNI()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
+Dim vari_1 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
@@ -3650,11 +3688,11 @@ Do While archivos <> ""
 Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\DESEMPEÑO\" & archivos
 archivos = Dir
 Loop
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
-RATA = Sheets(1).Range("A" & Rows.Count).End(xlUp).Row
-Sheets(1).Range("A2:F" & RATA).Copy
+vari_3 = Sheets(1).Range("A" & Rows.Count).End(xlUp).Row
+Sheets(1).Range("A2:F" & vari_3).Copy
 Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
 Sheets("Proyectos-Desarrollo").Select
 Range("H3").Select
@@ -3730,7 +3768,7 @@ Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
 Application.CutCopyMode = False
 Range("AI2").Select
 ActiveWorkbook.Save
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
 End Sub
@@ -3749,7 +3787,7 @@ Range("S3:S" & dragon).Select
 ActiveSheet.Paste
 Application.CutCopyMode = False
 Range("S2").Select
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
 End Sub
@@ -3779,7 +3817,7 @@ Sub scatter()
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 Dim archivos
-Dim goku As Excel.Workbook
+Dim vari_1 As Excel.Workbook
 Dim ws As Worksheet
 Dim pc As PivotCache
 Dim pt As PivotTable
@@ -3792,8 +3830,8 @@ Do While archivos <> ""
 Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\TURNOS\" & archivos
 archivos = Dir
 Loop
-bills = ActiveWorkbook.Name
-tt = bills
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
 Windows(tt).Activate
 Sheets("servicios fijos").Select
 tour = Sheets("servicios fijos").Range("A" & Rows.Count).End(xlUp).Row
@@ -3820,6 +3858,58 @@ End If
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
 Application.Calculation = xlCalculationAutomatic
-MsgBox "proceso FINAL FINAL completado CAPO, puede continuar con el siguiente paso", vbInformation
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
 End Sub
-
+Sub mou()
+Application.ScreenUpdating = False
+Application.DisplayAlerts = False
+Dim archivos
+Dim vari_1 As Excel.Workbook
+Dim ws As Worksheet
+Dim pc As PivotCache
+Dim pt As PivotTable
+Dim nomlib As String
+archivos = Dir("D:\AUTOMA_FULL_NEGOCIOS\MESH\*.xlsx")
+If archivos = "" Then
+MsgBox "NO HAY NINGÚN ARCHIVO DE TURNOS CARGADO", vbCritical
+Else
+Do While archivos <> ""
+Workbooks.Open "D:\AUTOMA_FULL_NEGOCIOS\MESH\" & archivos
+archivos = Dir
+Loop
+vari_2 = ActiveWorkbook.Name
+tt = vari_2
+Windows(tt).Activate
+Sheets(1).Select
+Range("A1").Select
+dragon = Selection.End(xlDown).Row
+Range("A2:EE" & dragon).Select
+Selection.Copy
+Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
+Sheets("MESH_NUEVO").Select
+Range("A2").Select
+ActiveSheet.Paste
+Application.CutCopyMode = False
+Range("A2").Select
+Windows(tt).Activate
+ActiveWorkbook.Close
+End If
+Application.ScreenUpdating = True
+Application.DisplayAlerts = True
+MsgBox "proceso FINAL FINAL completado , puede continuar con el siguiente paso", vbInformation
+End Sub
+Sub kloop()
+Windows("PLANTILLA_TOP_NEGOCIOS.xlsm").Activate
+Sheets("Base Móvil").Select
+Range("A1").Select
+dragon = Selection.End(xlDown).Row
+Range("S2").Select
+ActiveCell.FormulaR1C1 = _
+"=IF(ISNUMBER(SEARCH(""Enl.Direc"",RC[9])),IF(IFERROR(VLOOKUP(RC[22],LIQUIDADOR!C2:C3,2,0),0)=""CONSULTOR"","""",RC[22]),IF(ISNUMBER(SEARCH(""Enlacedirecto"",RC[9])),IF(IFERROR(VLOOKUP(RC[22],LIQUIDADOR!C2:C3,2,0),0)=""CONSULTOR"","""",RC[22]),RC[22]))"
+ActiveCell.Copy
+Range("S3:S" & dragon).Select
+ActiveSheet.Paste
+Application.CutCopyMode = False
+Range("S2").Select
+MsgBox "LISTO PRIMERA FASE", vbInformation
+End Sub
